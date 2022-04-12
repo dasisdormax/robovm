@@ -120,36 +120,8 @@ public class DebuggerLaunchPlugin extends LaunchPlugin {
         } else if (IOSTarget.TYPE.equals(target.getType())) {
             File appDir = new File(config.isSkipInstall() ? config.getTmpDir() : config.getInstallDir(), config.getExecutableName() + ".app");
             builder.setAppfile(new File(appDir, config.getExecutableName()));
-        builder.setArch(DebuggerConfig.Arch.valueOf(target.getArch().name()));
-
-        // make list of arguments for target
-        if (ConsoleTarget.TYPE.equals(target.getType())) {
-            File appDir = config.isSkipInstall() ? config.getTmpDir() : config.getInstallDir();
-            builder.setAppfile(new File(appDir, config.getExecutableName()));
-
-            File hooksPortFile;
-            try {
-                hooksPortFile = File.createTempFile("robovm-dbg-console", ".port");
-                builder.setHooksPortFile(hooksPortFile);
-            } catch (IOException e) {
-                throw new CompilerException("Failed to create debugger port file", e);
-            }
-
-            parameters.getArguments().add("-rvm:PrintDebugPort=" + hooksPortFile.getAbsolutePath());
-        } else if (IOSTarget.TYPE.equals(target.getType())) {
-            File appDir = new File(config.isSkipInstall() ? config.getTmpDir() : config.getInstallDir(), config.getExecutableName() + ".app");
-            builder.setAppfile(new File(appDir, config.getExecutableName()));
 
             if (IOSTarget.isSimulatorArch(config.getArch())) {
-                // launching on simulator, it can write down port number to file on local system
-                File hooksPortFile;
-                try {
-                    hooksPortFile = File.createTempFile("robovm-dbg-sim", ".port");
-                    builder.setHooksPortFile(hooksPortFile);
-                } catch (IOException e) {
-                    throw new CompilerException("Failed to create simulator debuuger port file", e);
-                }
-            if (IOSTarget.isSimulatorArch(target.getArch())) {
                 // launching on simulator, it can write down port number to file on local system
                 File hooksPortFile;
                 try {
