@@ -25,7 +25,6 @@ import org.robovm.compiler.clazz.Dependency;
 import org.robovm.compiler.clazz.MethodInfo;
 import org.robovm.compiler.config.Arch;
 import org.robovm.compiler.config.Config;
-import org.robovm.compiler.config.Environment;
 import org.robovm.compiler.config.OS;
 import org.robovm.compiler.llvm.Alias;
 import org.robovm.compiler.llvm.AliasRef;
@@ -52,7 +51,6 @@ import org.robovm.compiler.llvm.Linkage;
 import org.robovm.compiler.llvm.Load;
 import org.robovm.compiler.llvm.NullConstant;
 import org.robovm.compiler.llvm.Ordering;
-import org.robovm.compiler.llvm.PackedStructureConstantBuilder;
 import org.robovm.compiler.llvm.PointerType;
 import org.robovm.compiler.llvm.Ret;
 import org.robovm.compiler.llvm.Store;
@@ -229,7 +227,7 @@ public class ClassCompiler {
     private final TrampolineCompiler trampolineResolver;
     private final ObjCMemberPlugin.MethodCompiler objcMethodCompiler;
 
-    private final ByteArrayOutputStream output = new ByteArrayOutputStream(256 * 1024);
+    private final ByteArrayOutputStream output = new ByteArrayOutputStream(4 * 1024 * 1024);
     
     public ClassCompiler(Config config) {
         this.config = config;
@@ -1304,7 +1302,7 @@ public class ClassCompiler {
         header.add(new IntegerConstant((short) countReferences(classFields)));
         header.add(new IntegerConstant((short) countReferences(instanceFields)));
 
-        PackedStructureConstantBuilder body = new PackedStructureConstantBuilder();
+        StructureConstantBuilder body = new StructureConstantBuilder();
         body.add(new IntegerConstant((short) sootClass.getInterfaceCount()));
         body.add(new IntegerConstant((short) sootClass.getFieldCount()));
         body.add(new IntegerConstant((short) sootClass.getMethodCount()));
