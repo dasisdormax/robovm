@@ -17,6 +17,7 @@
 package org.robovm.libimobiledevice;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.robovm.libimobiledevice.binding.*;
@@ -137,6 +138,8 @@ public class IDevice implements AutoCloseable {
             for (int i = 0; i < count; i++) {
                 udids[i] = devices.get(i).getUdid();
             }
+            // Remove duplicate UDIDs (might happen if a device is both connected via USB and WiFi)
+            udids = Arrays.stream(udids).distinct().toArray(String[]::new);
             return udids;
         } catch (LibIMobileDeviceException e) {
         	if (e.getErrorCode() == IDeviceError.IDEVICE_E_NO_DEVICE.swigValue()) {
