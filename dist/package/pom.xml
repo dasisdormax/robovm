@@ -51,6 +51,10 @@
             <groupId>com.robovmx</groupId>
             <artifactId>robovm-cacerts-full</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.robovmx</groupId>
+            <artifactId>robovm-bro-bridge</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
