@@ -45,7 +45,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.idea.maven.project.MavenProjectsManager;
 import org.jetbrains.plugins.gradle.settings.DistributionType;
 import org.jetbrains.plugins.gradle.settings.GradleProjectSettings;
 import org.jetbrains.plugins.gradle.util.GradleConstants;
@@ -245,9 +244,6 @@ public class RoboVmModuleBuilder extends JavaModuleBuilder {
                 ImportSpecBuilder builder = new ImportSpecBuilder(rootModel.getProject(), GradleConstants.SYSTEM_ID);
                 ExternalSystemUtil.refreshProjects(builder);
             }
-        } else {
-            FileDocumentManager.getInstance().saveAllDocuments();
-            MavenProjectsManager.getInstance(project).forceUpdateAllProjectsOrFindAllAvailablePomFiles();
         }
     }
 

@@ -40,8 +40,11 @@ dependencies {
 }
 
 intellij {
-    version = '2021.1'   // we are compiles against this API version
-    plugins = ['java', 'maven', 'gradle']
+    //version = '2023.2'   // we are compiles against this API version
+    //version = 'AI-223.8836.35.2231.10406996'   // we are compiles against this API version
+    plugins = ['java', 'gradle', 'android']
+    //plugins = ['java', 'maven', 'gradle']
+    localPath = "/Applications/Android Studio.app/Contents"
     updateSinceUntilBuild = false
 }
 
