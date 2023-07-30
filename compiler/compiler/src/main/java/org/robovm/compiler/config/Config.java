@@ -193,6 +193,7 @@ public class Config {
 
     private boolean clean = false;
     private boolean debug = false;
+    private boolean registerDarwinExceptionHandler = false;
     private boolean useDebugLibs = false;
     private boolean skipLinking = false;
     private boolean skipInstall = false;
@@ -330,6 +331,10 @@ public class Config {
 
     public boolean isDebug() {
         return debug;
+    }
+
+    public boolean isRegisterDarwinExceptionHandler() {
+        return registerDarwinExceptionHandler;
     }
 
     public boolean isUseDebugLibs() {
@@ -1014,7 +1019,8 @@ public class Config {
 
         target.init(this);
 
-        os = target.getOs();
+        if (os == null)
+            os = target.getOs();
         sliceArch = target.getArch();
         dataLayout = new DataLayout(getTriple());
 
@@ -1338,6 +1344,11 @@ public class Config {
 
         public Builder debug(boolean b) {
             config.debug = b;
+            return this;
+        }
+
+        public Builder registerDarwinExceptionHandler(boolean b) {
+            config.registerDarwinExceptionHandler = b;
             return this;
         }
 

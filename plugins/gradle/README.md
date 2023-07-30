@@ -7,7 +7,7 @@ To use the RoboVM plugin, include in your build script:
 ```groovy
 // Pull the plugin from Maven Central
 buildscript {
-    ext.roboVMVersion = "10.2.2.1-SNAPSHOT"
+    ext.roboVMVersion = "2.3.19-SNAPSHOT"
     repositories {
         mavenCentral()
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
@@ -30,7 +30,7 @@ repositories {
 
 dependencies {
     implementation "com.robovmx:robovm-rt:${roboVMVersion}"
-    implementation "com.robovmx:robovm-cocoatouch:${roboVMVersion}"
+    implementation "robovmx:robovm-cocoatouch:${roboVMVersion}"
 }
 
 robovm {

@@ -4,7 +4,7 @@ plugins {
 }
 
 ext {
-    roboVMVersion = '10.2.2.2-SNAPSHOT'
+    roboVMVersion = '10.3.0-SNAPSHOT'
 }
 
 group 'com.robovmx'
@@ -24,7 +24,6 @@ dependencies {
     implementation ("com.robovmx:robovm-dist-compiler:${roboVMVersion}") {
         exclude group: 'com.robovmx', module: 'robovm-rt'
         exclude group: 'com.robovmx', module: 'robovm-objc'
-        exclude group: 'com.robovmx', module: 'robovm-bro-bridge'
         exclude group: 'com.robovmx', module: 'robovm-cocoatouch'
         exclude group: 'com.robovmx', module: 'robovm-cacerts-full'
     }
@@ -40,11 +39,8 @@ dependencies {
 }
 
 intellij {
-    //version = '2023.2'   // we are compiles against this API version
-    //version = 'AI-223.8836.35.2231.10406996'   // we are compiles against this API version
-    plugins = ['java', 'gradle', 'android']
-    //plugins = ['java', 'maven', 'gradle']
-    localPath = "/Applications/Android Studio.app/Contents"
+    version = '2021.1'   // we are compiles against this API version
+    plugins = ['java', 'maven', 'gradle']
     updateSinceUntilBuild = false
 }
 

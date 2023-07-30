@@ -114,7 +114,7 @@ public abstract class AbstractTarget implements Target {
             libs.addAll(Arrays.asList("-Wl,--whole-archive", "-lrobovm-rt" + libSuffix, "-Wl,--no-whole-archive"));
             libs.addAll(Arrays.asList("-Wl,--whole-archive", "-lrobovm-bro" + libSuffix, "-Wl,--no-whole-archive"));
         }
-        if (config.isSkipInstall()) {
+        if (config.isDebug() || config.isRegisterDarwinExceptionHandler()) {
             libs.add("-lrobovm-debug" + libSuffix);
         }
         libs.addAll(Arrays.asList(
@@ -158,7 +158,7 @@ public abstract class AbstractTarget implements Target {
         } else if (config.getOs().getFamily() == OS.Family.darwin) {
             ccArgs.add("-ObjC");
 
-            if (config.isSkipInstall()) {
+            if (config.isDebug() || config.isRegisterDarwinExceptionHandler()) {
                 exportedSymbols.add("catch_exception_raise");
             }
             for (int i = 0; i < exportedSymbols.size(); i++) {
@@ -252,7 +252,7 @@ public abstract class AbstractTarget implements Target {
         }
 
         ccArgs.add("-fPIC");
-        if (config.getOs() == OS.macosx) {
+        if (config.getOs() == OS.macosx || config.getOs() == OS.xros) {
             if (!config.getFrameworks().contains("CoreServices")) {
                 libs.add("-framework");
                 libs.add("CoreServices");
