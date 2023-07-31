@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.robovmx</groupId>
-    <version>10.3.0-SNAPSHOT</version>
+    <version>11.0-SNAPSHOT</version>
     <artifactId>robovm-parent</artifactId>
     <organization>
         <name>com.robovmx</name>
@@ -205,6 +205,11 @@
             <dependency>
                 <groupId>com.robovmx</groupId>
                 <artifactId>robovm-debugger</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.robovmx</groupId>
+                <artifactId>robovm-bro-bridge</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

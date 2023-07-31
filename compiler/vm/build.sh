@@ -60,7 +60,7 @@ if [ "x$TARGETS" = 'x' ]; then
   OS=$(uname)
   case $OS in
   Darwin)
-    TARGETS="macosx-x86_64 macosx-arm64 ios-x86_64-simulator ios-arm64-simulator ios-thumbv7 ios-arm64 xros-x86_64-simulator xros-arm64-simulator xros-arm64"
+    TARGETS="macosx-x86_64 macosx-arm64 ios-x86_64-simulator ios-arm64-simulator ios-thumbv7 ios-arm64"
     ;;
   Linux)
     TARGETS="linux-x86_64"
