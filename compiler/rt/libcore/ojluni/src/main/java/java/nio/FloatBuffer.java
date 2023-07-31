@@ -637,49 +637,49 @@ public abstract class FloatBuffer
         return offset;
     }
 
-    // BEGIN Android-added: covariant overloads of *Buffer methods that return this.
-    @CovariantReturnType(returnType = FloatBuffer.class, presentAfter = 28)
+    /// RoboVM Note: Java9 API covariant
     @Override
-    public Buffer position(int newPosition) {
-        return super.position(newPosition);
+    public final FloatBuffer flip() {
+        super.flip();
+        return this;
     }
 
-    @CovariantReturnType(returnType = FloatBuffer.class, presentAfter = 28)
     @Override
-    public Buffer limit(int newLimit) {
-        return super.limit(newLimit);
+    public final FloatBuffer clear() {
+        super.clear();
+        return this;
     }
 
-    @CovariantReturnType(returnType = FloatBuffer.class, presentAfter = 28)
     @Override
-    public Buffer mark() {
-        return super.mark();
+    public final FloatBuffer mark() {
+        super.mark();
+        return this;
     }
 
-    @CovariantReturnType(returnType = FloatBuffer.class, presentAfter = 28)
     @Override
-    public Buffer reset() {
-        return super.reset();
+    public final FloatBuffer reset() {
+        super.reset();
+        return this;
     }
 
-    @CovariantReturnType(returnType = FloatBuffer.class, presentAfter = 28)
     @Override
-    public Buffer clear() {
-        return super.clear();
+    public final FloatBuffer rewind() {
+        super.rewind();
+        return this;
     }
 
-    @CovariantReturnType(returnType = FloatBuffer.class, presentAfter = 28)
     @Override
-    public Buffer flip() {
-        return super.flip();
+    public final FloatBuffer position(int newPosition) {
+        super.position(newPosition);
+        return this;
     }
 
-    @CovariantReturnType(returnType = FloatBuffer.class, presentAfter = 28)
     @Override
-    public Buffer rewind() {
-        return super.rewind();
+    public final FloatBuffer limit(int newLimit) {
+        super.limit(newLimit);
+        return this;
     }
-    // END Android-added: covariant overloads of *Buffer methods that return this.
+    /// RoboVM Note: end of Java9 API covariant
 
     /**
      * Compacts this buffer&nbsp;&nbsp;<i>(optional operation)</i>.
@@ -869,6 +869,5 @@ public abstract class FloatBuffer
      * @return  This buffer's byte order
      */
     public abstract ByteOrder order();
-
 
 }

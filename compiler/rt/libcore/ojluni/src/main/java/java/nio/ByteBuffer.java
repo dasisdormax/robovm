@@ -805,49 +805,50 @@ public abstract class ByteBuffer
         return offset;
     }
 
-    // BEGIN Android-added: covariant overloads of *Buffer methods that return this.
-    @CovariantReturnType(returnType = ByteBuffer.class, presentAfter = 28)
+
+    /// RoboVM Note: Java9 API covariant
     @Override
-    public Buffer position(int newPosition) {
-        return super.position(newPosition);
+    public ByteBuffer flip() {
+        super.flip();
+        return this;
     }
 
-    @CovariantReturnType(returnType = ByteBuffer.class, presentAfter = 28)
     @Override
-    public Buffer limit(int newLimit) {
-        return super.limit(newLimit);
+    public ByteBuffer clear() {
+        super.clear();
+        return this;
     }
 
-    @CovariantReturnType(returnType = ByteBuffer.class, presentAfter = 28)
     @Override
-    public Buffer mark() {
-        return super.mark();
+    public ByteBuffer mark() {
+        super.mark();
+        return this;
     }
 
-    @CovariantReturnType(returnType = ByteBuffer.class, presentAfter = 28)
     @Override
-    public Buffer reset() {
-        return super.reset();
+    public ByteBuffer reset() {
+        super.reset();
+        return this;
     }
 
-    @CovariantReturnType(returnType = ByteBuffer.class, presentAfter = 28)
     @Override
-    public Buffer clear() {
-        return super.clear();
+    public ByteBuffer rewind() {
+        super.rewind();
+        return this;
     }
 
-    @CovariantReturnType(returnType = ByteBuffer.class, presentAfter = 28)
     @Override
-    public Buffer flip() {
-        return super.flip();
+    public ByteBuffer position(int newPosition) {
+        super.position(newPosition);
+        return this;
     }
 
-    @CovariantReturnType(returnType = ByteBuffer.class, presentAfter = 28)
     @Override
-    public Buffer rewind() {
-        return super.rewind();
+    public ByteBuffer limit(int newLimit) {
+        super.limit(newLimit);
+        return this;
     }
-    // END Android-added: covariant overloads of *Buffer methods that return this.
+    /// RoboVM Note: end of Java9 API covariant
 
     /**
      * Compacts this buffer&nbsp;&nbsp;<i>(optional operation)</i>.

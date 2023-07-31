@@ -638,49 +638,49 @@ public abstract class IntBuffer
         return offset;
     }
 
-    // BEGIN Android-added: covariant overloads of *Buffer methods that return this.
-    @CovariantReturnType(returnType = IntBuffer.class, presentAfter = 28)
+    /// RoboVM Note: Java9 API covariant
     @Override
-    public Buffer position(int newPosition) {
-        return super.position(newPosition);
+    public final IntBuffer flip() {
+        super.flip();
+        return this;
     }
 
-    @CovariantReturnType(returnType = IntBuffer.class, presentAfter = 28)
     @Override
-    public Buffer limit(int newLimit) {
-        return super.limit(newLimit);
+    public final IntBuffer clear() {
+        super.clear();
+        return this;
     }
 
-    @CovariantReturnType(returnType = IntBuffer.class, presentAfter = 28)
     @Override
-    public Buffer mark() {
-        return super.mark();
+    public final IntBuffer mark() {
+        super.mark();
+        return this;
     }
 
-    @CovariantReturnType(returnType = IntBuffer.class, presentAfter = 28)
     @Override
-    public Buffer reset() {
-        return super.reset();
+    public final IntBuffer reset() {
+        super.reset();
+        return this;
     }
 
-    @CovariantReturnType(returnType = IntBuffer.class, presentAfter = 28)
     @Override
-    public Buffer clear() {
-        return super.clear();
+    public final IntBuffer rewind() {
+        super.rewind();
+        return this;
     }
 
-    @CovariantReturnType(returnType = IntBuffer.class, presentAfter = 28)
     @Override
-    public Buffer flip() {
-        return super.flip();
+    public final IntBuffer position(int newPosition) {
+        super.position(newPosition);
+        return this;
     }
 
-    @CovariantReturnType(returnType = IntBuffer.class, presentAfter = 28)
     @Override
-    public Buffer rewind() {
-        return super.rewind();
+    public final IntBuffer limit(int newLimit) {
+        super.limit(newLimit);
+        return this;
     }
-    // END Android-added: covariant overloads of *Buffer methods that return this.
+    /// RoboVM Note: end of Java9 API covariant
 
     /**
      * Compacts this buffer&nbsp;&nbsp;<i>(optional operation)</i>.
@@ -870,6 +870,5 @@ public abstract class IntBuffer
      * @return  This buffer's byte order
      */
     public abstract ByteOrder order();
-
 
 }
