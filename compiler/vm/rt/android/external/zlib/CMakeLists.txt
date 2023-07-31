@@ -1,7 +1,7 @@
 project(android-external-zlib)
 
 add_definitions(-DUSE_MMAP -DZLIB_CONST)
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -Wall -Werror")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -Wall -Werror -Wno-deprecated-non-prototype -Wno-error=unused-but-set-variable")
 
 set(SRC
   src/adler32.c  

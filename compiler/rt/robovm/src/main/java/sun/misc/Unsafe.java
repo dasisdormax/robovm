@@ -266,15 +266,6 @@ public final class Unsafe {
     public native byte getByte(Object obj, long offset);
 
     /**
-     * Gets a <code>double</code> field from the given object.
-     *
-     * @param obj non-null; object containing the field
-     * @param offset offset to the field within <code>obj</code>
-     * @return the retrieved value
-     */
-    public native double getDouble(Object obj, long offset);
-
-    /**
      * Stores an <code>int</code> field into the given object.
      *
      * @param obj non-null; object containing the field
@@ -300,15 +291,6 @@ public final class Unsafe {
      * @param newValue the value to store
      */
     public native void putByte(Object obj, long offset, byte newValue);
-
-    /**
-     * Stores a <code>double</code> field into the given object.
-     *
-     * @param obj non-null; object containing the field
-     * @param offset offset to the field within <code>obj</code>
-     * @param newValue the value to store
-     */
-    public native void putDouble(Object obj, long offset, double newValue);
 
     /**
      * Gets an <code>float</code> field from the given object.
