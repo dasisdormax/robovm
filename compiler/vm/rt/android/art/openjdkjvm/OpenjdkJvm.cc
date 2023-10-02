@@ -41,6 +41,7 @@
 #include <android-base/logging.h>
 
 #include "../../libcore/ojluni/src/main/native/jvm.h"  // TODO(narayan): fix it
+#include <cassert>
 
 #undef LOG_TAG
 #define LOG_TAG "artopenjdk"
