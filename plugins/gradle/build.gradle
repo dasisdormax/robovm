@@ -10,7 +10,7 @@ plugins {
 
 group = 'com.mobidevelop.robovm'
 archivesBaseName = 'robovm-gradle-plugin'
-version = '2.3.20-SNAPSHOT'
+version = '2.3.21-SNAPSHOT'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -20,7 +20,7 @@ compileJava {
 }
 
 ext {
-    roboVMVersion = '2.3.20-SNAPSHOT'
+    roboVMVersion = '2.3.21-SNAPSHOT'
     nexusUsername = System.getenv('MAVEN_USERNAME')
     nexusPassword = System.getenv('MAVEN_PASSWORD')
 }
@@ -34,7 +34,7 @@ repositories {
 dependencies {
     compileOnly gradleApi()
     compileOnly localGroovy()
-    implementation "org.apache.commons:commons-compress:1.5"
+    implementation "org.apache.commons:commons-compress:1.22"
     implementation "com.mobidevelop.robovm:robovm-compiler:${roboVMVersion}"
     implementation 'org.sonatype.aether:aether:1.13.1'
     implementation 'org.sonatype.aether:aether-connector-wagon:1.13.1'
