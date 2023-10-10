@@ -186,6 +186,7 @@ public abstract class AbstractTarget implements Target {
             ccArgs.add(exportedSymbolsFile.getAbsolutePath());
 
             ccArgs.add("-Wl,-no_implicit_dylibs");
+            ccArgs.add("-Wl,-ld_classic");
             ccArgs.add("-Wl,-dead_strip");
         }
 
