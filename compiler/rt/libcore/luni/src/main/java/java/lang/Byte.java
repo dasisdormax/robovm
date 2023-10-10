@@ -170,6 +170,18 @@ public final class Byte extends Number implements Comparable<Byte> {
         return value;
     }
 
+    /**
+     * Returns a hash code for a {@code byte} value; compatible with
+     * {@code Byte.hashCode()}.
+     *
+     * @param value the value to hash
+     * @return a hash code value for a {@code byte} value.
+     * @since 1.8
+     */
+    public static int hashCode(byte value) {
+        return (int)value;
+    }
+
     @Override
     public int intValue() {
         return value;

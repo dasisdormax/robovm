@@ -2577,6 +2577,19 @@ public final class Character implements Serializable, Comparable<Character> {
     }
 
     /**
+     * Returns a hash code for a {@code char} value; compatible with
+     * {@code Character.hashCode()}.
+     *
+     * @since 1.8
+     *
+     * @param value The {@code char} for which to return a hash code.
+     * @return a hash code value for a {@code char} value.
+     */
+    public static int hashCode(char value) {
+        return (int)value;
+    }
+
+    /**
      * Returns the high surrogate for the given code point. The result is meaningless if
      * the given code point is not a supplementary character.
      * @since 1.7

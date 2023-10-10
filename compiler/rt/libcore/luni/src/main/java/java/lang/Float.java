@@ -225,6 +225,18 @@ public final class Float extends Number implements Comparable<Float> {
     }
 
     /**
+     * Returns a hash code for a {@code float} value; compatible with
+     * {@code Float.hashCode()}.
+     *
+     * @param value the value to hash
+     * @return a hash code value for a {@code float} value.
+     * @since 1.8
+     */
+    public static int hashCode(float value) {
+        return floatToIntBits(value);
+    }
+
+    /**
      * Returns the <a href="http://en.wikipedia.org/wiki/IEEE_754-1985">IEEE 754</a>
      * single precision float corresponding to the given {@code bits}.
      */
